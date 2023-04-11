@@ -1,0 +1,68 @@
+{
+  "name": "@bunzz/deploy-sdk",
+  "version": "0.1.0",
+  "description": "An SDK to deploy smart contracts from frontend by Bunzz",
+  "main": "lib/index.cjs.js",
+  "module": "lib/index.esm.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib/**/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BunzzDev/deploy-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/BunzzDev/deploy-sdk/issues"
+  },
+  "homepage": "https://github.com/BunzzDev/deploy-sdk#readme",
+  "author": "Bunzz Pte. Ltd.",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "clean": "rimraf lib",
+    "build": "npm-run-all clean esbuild tsc-declaration tsc-test",
+    "esbuild": "node ./esbuild.js",
+    "test": "hardhat test",
+    "eslint": "eslint --ext .js,.jsx,.ts,.tsx src --fix",
+    "tsc-test": "tsc --project . --noEmit",
+    "tsc-declaration": "tsc --emitDeclarationOnly",
+    "lint": "npm-run-all tsc-test eslint",
+    "prepublish": "yarn build"
+  },
+  "devDependencies": {
+    "@ethersproject/providers": "^5.7.2",
+    "@nomicfoundation/hardhat-chai-matchers": "^1.0.6",
+    "@nomicfoundation/hardhat-network-helpers": "^1.0.8",
+    "@nomicfoundation/hardhat-toolbox": "^2.0.2",
+    "@nomiclabs/hardhat-ethers": "^2.2.2",
+    "@nomiclabs/hardhat-etherscan": "^3.1.7",
+    "@nomiclabs/hardhat-waffle": "^2.0.5",
+    "@typechain/ethers-v5": "^10.2.0",
+    "@typechain/hardhat": "^6.1.5",
+    "@types/chai": "^4.3.4",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "^18.15.11",
+    "@types/uuid": "^9.0.1",
+    "@typescript-eslint/eslint-plugin": "^5.57.1",
+    "@typescript-eslint/parser": "^5.57.1",
+    "chai": "^4.3.7",
+    "esbuild": "^0.17.15",
+    "eslint": "^8.37.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "hardhat": "^2.13.0",
+    "hardhat-gas-reporter": "^1.0.9",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.8.7",
+    "rimraf": "^4.4.1",
+    "solidity-coverage": "^0.8.2",
+    "ts-node": "^10.9.1",
+    "typechain": "^8.1.1",
+    "typescript": "^5.0.3"
+  },
+  "dependencies": {
+    "@ethersproject/abstract-provider": "^5.7.0",
+    "ethers": "^5.7.0"
+  }
+}
